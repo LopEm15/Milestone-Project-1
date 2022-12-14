@@ -8,10 +8,18 @@
     <script src="script.js" type="module"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<!-- had to redo the body as I didn't like it looked, then started thinking about the functionality of how the dealer and the player would get their cards -->
 <body>
-    <div class="computer-deck deck">52</div>
-    <div class="computer-card-slot card-slot"></div>
-    <div class="text"></div>
-    <div class="player-card-slot card-slot"></div>
+    <h2>Dealer: <span id='dealer-sum'></span></h2>
+    <div id="dealer-cards"></div>
+
+    <h2>Player: <span id="your-sum"></span></h2>
+    <div id="your-cards"></div>
+
+    <br>
+    <button id="hit">Hit</button>
+    <button id="stay">Stay</button>
+    <p id="results"></p>
 </body>
 </html>
