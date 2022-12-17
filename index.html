@@ -26,5 +26,25 @@
     <form>
         <input value = "RESTART GAME" onclick = "history.go(0)" type = "button">
     </form>
+    <div>
+        <h2>Scoreboard</h2>
+        <button id="clear">Clear</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dealer's Wins</th>
+                    <th>Ties</th>
+                    <th>Your wins</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="dealer-wins">0</td>
+                    <td id="ties">0</td>
+                    <td id="your-wins">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
