@@ -76,7 +76,7 @@ function startGame() {
     console.log(yourSum);
     // Now that the cards load in I have to add an event listener for the "Hit" and "Stay" buttons
     document.getElementById("hit").addEventListener("click", hit);
-    document.getElementById("stay").addEventListener("click", stay);
+    document.getElementById("stand").addEventListener("click", stand);
 }
 // time to add functions to those event listeners
 function hit() {
@@ -98,7 +98,7 @@ function hit() {
 }
 
 
-function stay() {
+function stand() {
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
 
@@ -170,3 +170,6 @@ function reduceAce(playerSum, playerAceCount) {
     return playerSum;
 }
 
+function restartGame(){
+    
+}
