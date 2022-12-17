@@ -9,7 +9,11 @@ var deck;
 
 var canHit = true; // allows the player to draw while playerSum <= 21
 
-window.onload = function() {
+let ties = 0;
+let dealerWins = 0;
+let yourWins = 0;
+
+window.onload = () => {
     buildDeck();
     shuffleDeck();
     startGame();
@@ -93,6 +97,7 @@ function hit() {
 
 }
 
+
 function stay() {
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount);
@@ -102,26 +107,39 @@ function stay() {
 
     let message = "";
     if (yourSum > 21) {
-        message = "You Lose!"
+        message = "You Lose!";
+        dealerWins++;
     }
     else if (dealerSum > 21) {
         message = "You Win!";
+        yourWins++;
     } 
     //if both you and the dealer <= 21
     else if (yourSum == dealerSum) {
-        message = "Tie!"
+        message = "Tie!";
+        ties++;
     }
     else if (yourSum > dealerSum){
         message = "You Win!";
+        yourWins++;
     }
     else if (yourSum < dealerSum) {
         message = "You Lose!";
+        dealerWins++;
     }
     document.getElementById("dealer-sum").innerText = dealerSum;
     document.getElementById("your-sum").innerText = yourSum;
     // Time to display the results
-     document.getElementById("results").innerText = message;
+    document.getElementById("results").innerText = message;
+    document.getElementById("dealer-wins").innerText = dealerWins;
+    document.getElementById("ties").innerText = ties;
+    document.getElementById("your-wins").innerText = yourWins;
+
+    console.log(dealerWins)
+    console.log(yourWins)
+    console.log(ties)
 }
+
 
 function getValue(card) {
     let data = card.split("-"); // "4-C" -> ["4", "C"]
@@ -151,3 +169,4 @@ function reduceAce(playerSum, playerAceCount) {
     }
     return playerSum;
 }
+
