@@ -21,6 +21,10 @@ window.onload = () => {
 
 // build deck function
 function buildDeck() {
+    yourSum = 0;
+    dealerSum = 0;
+    // document.getElementById("dealer-cards").innerHTML = "";
+    document.getElementById("your-cards").innerHTML= "";
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let types =  ["C", "D", "H", "S"];
     deck = [];
@@ -46,13 +50,13 @@ function shuffleDeck() {
     console.log(deck);
 }
 
-function dealCard() {
-    let cardImg = document.createElement("img");
-    let card = deck.pop();
-    cardImg.src = "./Cards/" + card + ".png";
-    dealerSum += getValue(card);
-    dealerAceCount += checkAce(card);
-}
+// function dealCard() {
+//     let cardImg = document.createElement("img");
+//     let card = deck.pop();
+//     cardImg.src = "./Cards/" + card + ".png";
+//     dealerSum += getValue(card);
+//     dealerAceCount += checkAce(card);
+// }
 
 function startGame() {
     hidden = deck.pop();
@@ -180,5 +184,9 @@ function reduceAce(playerSum, playerAceCount) {
 
 document.getElementById("restart").addEventListener("click", restartGame);
 function restartGame(){
-
+    buildDeck();
+    shuffleDeck();
+    startGame();
 }
+
+// Figure out why the hidden card isn't loading and displaying in the document.getElementById
