@@ -5,47 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Jack</title>
-    <script src="deck.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css
+    "> -->
 </head>
 
 <!-- had to redo the body as I didn't like how it looked, then started thinking about the functionality of how the dealer and the player would get their cards -->
 <body>
-     <div>
-            <button id="hit" class="btn">Hit</button>
-            <button id="stand" class="btn">Stand</button>
-            <button id="restart" class="btn">Restart</button>
-    </div>
- 
-    <h2>Dealer: <span id='dealer-sum'></span></h2>
-    <div id="dealer-cards">
-        <img id="hidden" src="./Cards/BACK.png">
-    </div>
-    <h2>You: <span id="your-sum"></span></h2>
-    <div id="your-cards"></div>
+    <div id="wrapper">
+        <div id="game">
+            <div id="scoreboard">
+                <h2>Scoreboard:</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dealer's Wins</th>
+                                <th>Ties</th>
+                                <th>Your wins</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="dealer-wins">0</td>
+                                <td id="ties">0</td>
+                                <td id="your-wins">0</td>
+                            </tr>
+                        </tbody>
+                    </table>    
+            </div>
+            <h2>Dealer: <span id='dealer-sum'></span></h2>
+            <div id="container">    
+            <div id="dealer-cards">
+                <br>
+                    <img id="hidden" src="./Cards/BACK.png">
+                </div>    
+            <h2>You: <span id="your-sum"></span></h2>
+                <div id="your-cards"></div>
+                    <div id="actions">
+                        <button id="hit" class="btn">Hit</button>
+                        <button id="stand" class="btn">Stand</button>
+                        <button id="restart" class="btn">Restart</button>
+                    </div>
+               
+                    <!-- The "p tag" is left blank fo right now but I will need to implement a JS function to display the results -->
+                    <p id="results"></p>
+                <button id="clear">Clear</button>
+            </div>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="deck.js"></script>
+</div>
 
     <!-- The "p tag" is left blank fo right now but I will need to implement a JS function to display the results -->
-    <p id="results"></p>
-    
-    <div id="scoreboard">
-        <h2>Scoreboard:</h2>
-        <button id="clear">Clear</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dealer's Wins</th>
-                        <th>Ties</th>
-                        <th>Your wins</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="dealer-wins">0</td>
-                        <td id="ties">0</td>
-                        <td id="your-wins">0</td>
-                    </tr>
-                </tbody>
-            </table>
-    </div>
+
 </body>
 </html>

@@ -46,6 +46,14 @@ function shuffleDeck() {
     console.log(deck);
 }
 
+function dealCard() {
+    let cardImg = document.createElement("img");
+    let card = deck.pop();
+    cardImg.src = "./Cards/" + card + ".png";
+    dealerSum += getValue(card);
+    dealerAceCount += checkAce(card);
+}
+
 function startGame() {
     hidden = deck.pop();
     dealerSum += getValue(hidden);
@@ -74,7 +82,7 @@ function startGame() {
     }
 
     console.log(yourSum);
-    // Now that the cards load in I have to add an event listener for the "Hit" and "Stay" buttons
+    // Now that the cards load in I have to add an event listener for the "Hit" and "Stand" buttons
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stand").addEventListener("click", stand);
 }
@@ -161,7 +169,7 @@ function checkAce(card) {
     return 0;
 }
 
-// this function is to make the Ace either a 1 or stay as an 11 depending on what you drew without going over withiout going over 21
+// this function is to make the Ace either a 1 or stay as an 11 depending on what you drew without going over without going over 21
 function reduceAce(playerSum, playerAceCount) {
     while (playerSum > 21 && playerAceCount > 0) {
         playerSum -=10;
@@ -170,6 +178,7 @@ function reduceAce(playerSum, playerAceCount) {
     return playerSum;
 }
 
+document.getElementById("restart").addEventListener("click", restartGame);
 function restartGame(){
-    
+
 }
