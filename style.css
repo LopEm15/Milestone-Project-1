@@ -1,0 +1,85 @@
+body{
+    background:url(images/Table.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container{
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+ .flex-blackjack-row-2 div{
+    padding: 10px;
+    flex: 1;
+    height: 350px;
+    text-align: center;
+ }
+
+.flex-blackjack-row-2 div img {
+    padding: 10px;
+    object-fit: contain;
+}
+
+.flex-blackjack-row-3 div {
+    padding: 10px;
+}
+
+.flex-blackjack-row-3 div button {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+table, th, td {
+    padding: 5px;
+    border: 1px solid white;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+#win-header{
+    color: lightgreen;
+}
+
+#loss-header {
+    color: #d32f2f;
+}
+
+#draw-header {
+    color: yellow;
+}
+
+#blackjack-hit-button {
+    color: white;
+    background-color: rgb(17, 118, 201);
+    box-shadow: 2px 2px black;
+}
+
+#blackjack-stand-button {
+    color: rgb(58, 57, 57);
+    background-color: rgb(255, 145, 0);
+    box-shadow: 2px 2px black;
+}
+
+#blackjack-deal-button {
+    color: white;
+    background-color: red;
+    box-shadow: 2px 2px black;
+}
+
+#blackjack-reset-button {
+    color: white;
+    background-color: rgb(11, 182, 11);
+    box-shadow: 2px 2px black;
+}
+
