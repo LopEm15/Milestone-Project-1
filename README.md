@@ -9,3 +9,7 @@ K, Q, or J = 10
 All others are their pip value
 
 <!-- I will add more instruction as I go and build the code. -->
+- Hit: Deals your cards
+- Stand: Deals the dealer's cards
+- Deal: Resets the game
+- Reset Score: Resets the table score
