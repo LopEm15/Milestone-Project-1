@@ -1,7 +1,7 @@
 // I am putting a series of arrays inside an array to access a key within a given array
 let blackjackGame = {
     you: {
-        scoreSpan: '#your-blackjack-result',
+        scoreSpan : "#your-blackjack-result",
         div: "#your-box",
         boxSize: '.flex-blackjack-row-2 div',
         score: 0,
@@ -41,13 +41,13 @@ let blackjackGame = {
 };
 
 // Finally remembered how to use previous functions instead of rewriting the same code and avoid DRY
-const YOU = blackjackGame["you"];
-const DEALER = blackjackGame["dealer"];
+const YOU = blackjackGame.you;
+const DEALER = blackjackGame.dealer;
 
 // This is just extra stuff like sound effects depending on the result of the match.
-// const hitSound = new Audio("");
-// const winSound = new Audio("");
-// const loseSound = new Audio("");
+const hitSound = new Audio("sounds/swish.m4a");
+const winSound = new Audio("sounds/cash.mp3");
+const loseSound = new Audio("sounds/aww.mp3");
 
 // This section is more for mobile usage to make the game adjust depending on the screen
 let windowWidth = window.screen.width;
@@ -60,7 +60,7 @@ document
   .addEventListener("click", blackjackHit);
 
 function blackjackHit() {
-    if(blackjackGame["isStand"] === false) {
+    if(blackjackGame.isStand === false) {
         let card = randomCard();
         showCard(card, YOU);
         updateScore(card, YOU);
@@ -70,60 +70,60 @@ function blackjackHit() {
 
 function randomCard () {
     let randomIndex = Math.floor(Math.random() * 13);
-    return blackjackGame["cards"][randomIndex];
+    return blackjackGame.cards[randomIndex];
 }
 
 function showCard(card, activePlayer){
-    if (activePlayer["score"] <= 21) {
+    if (activePlayer.score <= 21) {
         let cardImage = document.createElement("img");
         cardImage.src = `images/${card}.png`;
         cardImage.style = `width:${widthSize()}; height:${heightSize()};`;
-        document.querySelector(activePlayer["div"]).appendChild(cardImage);        
-        // hitSound.play();
+        document.querySelector(activePlayer.div).appendChild(cardImage);        
+        hitSound.play();
     }
 }
 
 // Since I created the style of the images in the previous function I now need to make sure it adjusts to the screen size of any device.
 function widthSize() {
     if (windowWidth > 1000) {
-      let newWidthSize = window.screen.width * 0.1;
+      let newWidthSize = window.screen.width * 0.08;
       return newWidthSize;
     } else {
-      return window.screen.width * 0.18;
+      return window.screen.width * 0.16;
     }
   }
 
   function heightSize() {
     if (windowHeight > 700) {
-      let newHeightSize = window.screen.height * 0.18;
+      let newHeightSize = window.screen.height * 0.16;
       return newHeightSize;
     } else {
-      return window.screen.height * 0.15;
+      return window.screen.height * 0.13;
     }
   }
 
 // This function is to calculate your cards and add them up. Right now it will only show in the console, I have to create another function to show the score.
 function updateScore(card, activePlayer) {
     if (card === "A") {
-      if (activePlayer["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
-        activePlayer["score"] += blackjackGame["cardsMap"][card][1];
+      if (activePlayer.score + blackjackGame.cardsMap[card][1] <= 21) {
+        activePlayer.score += blackjackGame.cardsMap[card][1];
       } else {
-        activePlayer["score"] += blackjackGame["cardsMap"][card][0];
+        activePlayer.score += blackjackGame.cardsMap[card][0];
       }
     } else {
-      activePlayer["score"] += blackjackGame["cardsMap"][card];
+      activePlayer.score += blackjackGame.cardsMap[card];
     }
   
-    console.log(activePlayer["score"]);
+    console.log(activePlayer.score);
   }
 
 // This function will now take our previous function and show the score on your card total and dealer cards total
 function showScore(activePlayer) {
     //Bust logic if score is over 21
-    if (activePlayer["score"] > 21) {
-      document.querySelector(activePlayer["scoreSpan"]).textContent = "BUST!";
-      document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
+    if (activePlayer.score > 21) {
+      document.querySelector('#your-blackjack-result').textContent = "BUST!";
+      document.querySelector('#your-blackjack-result').style.color = "red";
     } else {
-      document.querySelector(activePlayer["scoreSpan"]).textContent = activePlayer["score"];
-    }
+      document.querySelector('#your-blackjack-result').textContent = activePlayer.score;
+     }
   }
