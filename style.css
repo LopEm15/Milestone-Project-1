@@ -6,7 +6,7 @@ body{
 
 
 .container{
-    margin: 0 auto;
+    margin: 175 auto;
     text-align: center;
     color: white;
 }
@@ -52,7 +52,7 @@ table, th, td {
 }
 
 #loss-header {
-    color: #d32f2f;
+    color: rgb(209, 4, 4);
 }
 
 #draw-header {
